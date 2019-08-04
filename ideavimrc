@@ -1,0 +1,106 @@
+" =============================================================
+" Global Configuration
+" =============================================================
+set surround
+set multiple-cursors " vim-multiple-cursors と同等の機能を実現する
+set hlsearch
+set incsearch
+set ignorecase
+" Escの2回押しでハイライト消去
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC> 
+
+" =============================================================
+" Clipboard
+" =============================================================
+" クリップボードと yank を同期させる
+set clipboard=unnamed,unnamedplus
+
+" =============================================================
+" Bookmark
+" =============================================================
+nnoremap mm :action ToggleBookmark<CR>
+nnoremap ma :action ShowBookmarks<CR>
+" =============================================================
+" Window
+" =============================================================
+nnoremap <,>s :action SplitHorizontally<CR>
+nnoremap <,>v :action SplitVertically<CR>
+nnoremap <C-W>j :action VimWindowDown<CR>
+nnoremap <C-W>h :action VimWindowLeft<CR>
+nnoremap <C-W>l :action VimWindowRight<CR>
+nnoremap <C-W>k :action VimWindowUp<CR>
+
+" =============================================================
+" Editor control
+" =============================================================
+
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+vnoremap x "_x
+
+" normal mode
+" ===============================
+nnoremap Y ^y$ " 先頭から行末までコピー
+nnoremap <tab> >>
+
+" Reload .ideavimrc
+nnoremap <,>r :source ~/.ideavimrc<CR>
+
+nnoremap <,>o :action GotoFile<CR>
+nnoremap <,>O :action GotoClass<CR>
+
+" 定義元へジャンプ
+nnoremap <Space>m :action GotoDeclaration<CR>
+nnoremap <Space>T :action GotoTypeDeclaration<CR>
+
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+
+" 前/次のメソッド定義へジャンプ
+nnoremap [m :<C-u>action MethodUp<CR>
+nnoremap ]m :<C-u>action MethodDown<CR>
+
+" 現在のファイルの変更箇所(VCS)の前/次へジャンプ
+nnoremap [c :<C-u>action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :<C-u>action VcsShowNextChangeMarker<CR>
+
+" 変更箇所の前/次へジャンプ
+nnoremap [g :<C-u>action JumpToLastChange<CR>
+nnoremap ]g :<C-u>action JumpToNextChange<CR>
+
+" エラー箇所の前/次へジャンプ
+nnoremap [e :<C-u>action GotoPreviousError<CR>
+nnoremap ]e :<C-u>action GotoNextError<CR>
+
+nnoremap [b :action GotoPreviousBookmark<CR>
+nnoremap ]b :action GotoNextBookmark<CR>
+
+" Refactor
+nnoremap <Space>= :<C-u>action ReformatCode<CR>
+nnoremap <Space>t :<C-u>action Refactorings.QuickListPopupAction<CR>
+nnoremap <Space>p :<C-u>action ReformatWithPrettierAction<CR>
+nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
+nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
+nnoremap <Space>e :<C-u>action Javascript.Linters.EsLint.Fix<CR>
+nnoremap <Space>z :<C-u>action QuickJavaDoc<CR>
+
+" Git
+nnoremap <Space>g :<C-u>action Vcs.ShowHistoryForBlock<CR>
+nnoremap <Space>B :<C-u>action Git.Branches<CR>
+
+" insert mode
+" ===============================
+"インサートモードで bash 風キーマップ
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$<Right>
+inoremap <C-u> <C-o>d^
+inoremap <C-w> <C-o>db
+
+nnoremap ;; <Esc>
+
+" Visual mode
+" ===============================
+" vnoremap v ^$h " vv で行末まで選択
+" vnoremap v :action EditorUpWithSelection<CR>
+

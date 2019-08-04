@@ -1,0 +1,137 @@
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'dracula/vim'
+
+# ファイルツリー
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+# help の日本語化
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# 'hoge' => "hoge" に変えたりできる
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# toml ファイル
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+# コンテキストから自動的にファイルタイプを切り替える
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+# カーソル位置のコンテキストでファイルタイプを切り替える
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+
+# emmet を使えるようにする control + y + ,
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+# 最近使ったファイルを表示する
+#[[plugins]]
+#repo = 'Shougo/neomru.vim'
+
+# ツリー型のファイル表示
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'Shougo/vimshell'
+
+# mutiple selections
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+# editorconfig対応
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+# vim から git のコマンドを実行できるようにするやつ
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# vim 下部のステータスラインを装飾するプラグイン
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+# テンプレート機能
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+
+# インデントに色つける
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# JS のハイライト
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+# git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# vimshell
+# https://github.com/Shougo/vimshell.vim
+[[plugins]]
+repo  = 'Shougo/vimproc.vim'
+build = 'make'
+
+# yank を履歴管理できるようにしたもの
+# Ctr-p で前、Crt-n で次の履歴へ変更できる
+# :Unite yankround で一覧表示からリストで選択するように
+[[plugins]]
+repo  = 'leafcage/yankround.vim'
+
+# 直近の yank 
+# [[plugins]]
+# repo  = 'kana/vim-operator-replace'
+
+# + で選択範囲広げる _ で選択範囲縮める
+[[plugins]]
+repo  = 'terryma/vim-expand-region'
+
+# マークをメモ付きで管理
+[[plugins]]
+repo = 'mattesgroeger/vim-bookmarks'
+
+# Visualモードで選択した領域の移動コピーを便利に
+[[plugins]]
+repo = 't9md/vim-textmanip'
+
+[[plugins]]
+repo = 'regedarek/ZoomWin'
+
+[[plugins]]
+repo = 'hrp/EnhancedCommentify'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+depends = ['Shugo/vimproc']
+  [autoload]
+  filetypes = ['typescript']
