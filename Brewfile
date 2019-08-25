@@ -3,6 +3,7 @@
 
 tap homebrew/core
 brew anyenv
+brew bat
 brew cairo
 brew fontconfig
 brew fontforge
@@ -49,6 +50,7 @@ brew pixman
 brew python
 brew readline
 brew reattach-to-user-namespace
+brew ripgrep
 brew rlwrap
 brew ruby
 brew sqlite
@@ -63,16 +65,18 @@ brew unrar
 brew vim
 brew xz
 brew yarn
+brew zplug
 brew zsh
 brew zsh-autosuggestions
 brew zsh-completions
 
 tap homebrew/cask
 cask 1password
-cask bartender
-cask dash
-cask dropbox
-cask google-japanese-ime
+cask android-studio
+cask charles
+cask docker
+cask google-chrome
+cask graphiql
 cask insomnia
 cask james
 cask mapture
@@ -83,6 +87,9 @@ cask sketchpacks
 cask visual-studio-code
 cask zeplin
 
+tap knqyf263/pet
+brew pet
+
 tap rcmdnk/file
 brew brew-file
 
@@ -91,9 +98,10 @@ brew ricty --with-powerline
 
 # Other Cask applications
 cask alfred
-cask charles
-cask docker
-cask google-chrome
+cask bartender
+cask dash
+cask dropbox
+cask google-japanese-ime
 cask gyazo
 cask iterm2
 cask karabiner-elements

@@ -108,7 +108,7 @@ function url_decode() {
 }
 
 # hub replace git
-function git(){hub "$@"}
+# function git(){hub "$@"}
 
 # create git-worktree
 function gwt() {
@@ -133,6 +133,21 @@ function cgbr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+# pet で直前のコマンドをスニペットに登録する
+function prev() {
+  PREV=$(fc -lrn | head -n 1)
+  sh -c "pet new -t `printf %q "$PREV"`"
+}
+
+# コマンドライン上にスニペットを表示する
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+bindkey '^,' pet-select
+
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -142,3 +157,8 @@ if [[ -s "~/.zshrc-local" ]]; then
   echo 'Loaded .zshrc-local'
   source "~/.zshrc-local"
 fi
+
+# zplug section
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+zplug "b4b4r07/easy-oneliner", if:"which fzf"
