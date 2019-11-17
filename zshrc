@@ -47,7 +47,7 @@ alias -g X='| xargs'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias ideavim='vim ~/.ideavimrc'
-alias brewfile='vim ~/.config/Brewfile'
+alias brewfile='vim ~/.config/brewfile/Brewfile'
 alias tigrc='vim ~/.tigrc'
 alias -s {html,pug,nunjax,css,scss,js,ts,tsc}='code'
 alias s='source ~/.zshrc'
@@ -65,9 +65,6 @@ branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 alias fco='git checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
 alias ls='ls -G'
 alias mkdir='mkdir -p'
-
-# カレントディレクトリ以下を再帰的に検索する
-alias rgrep='find . -name "*.svn*" -prune -o -type f -print0 | xargs -0 grep'
 
 # tree alias
 alias tree="tree -I node_modules"
@@ -106,9 +103,6 @@ function url_encode() {
 function url_decode() {
   echo $1 | tr % = | nkf -WwmQ
 }
-
-# hub replace git
-# function git(){hub "$@"}
 
 # create git-worktree
 function gwt() {
@@ -157,8 +151,3 @@ if [[ -s "~/.zshrc-local" ]]; then
   echo 'Loaded .zshrc-local'
   source "~/.zshrc-local"
 fi
-
-# zplug section
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-zplug "b4b4r07/easy-oneliner", if:"which fzf"

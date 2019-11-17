@@ -3,6 +3,7 @@
 
 tap homebrew/core
 brew anyenv
+brew asciinema
 brew bat
 brew cairo
 brew fontconfig
@@ -27,11 +28,15 @@ brew jpeg
 brew jq
 brew libevent
 brew libffi
+brew libimobiledevice
+brew libplist
 brew libpng
 brew libspiro
+brew libtasn1
 brew libtiff
 brew libtool
 brew libuninameslist
+brew libusb
 brew libyaml
 brew libzip
 brew lua
@@ -42,6 +47,7 @@ brew ncurses
 brew nkf
 brew oniguruma
 brew openssl
+brew openssl@1.1
 brew pango
 brew pcre
 brew pcre2
@@ -62,7 +68,9 @@ brew translate-shell
 brew trash
 brew tree
 brew unrar
+brew usbmuxd
 brew vim
+brew watchman
 brew xz
 brew yarn
 brew zplug
@@ -72,20 +80,24 @@ brew zsh-completions
 
 tap homebrew/cask
 cask 1password
-cask android-studio
-cask charles
-cask docker
-cask google-chrome
-cask graphiql
-cask insomnia
-cask james
-cask mapture
+cask alfred
+cask bartender
+cask dash
+cask dropbox
+cask google-japanese-ime
+cask gyazo
+cask iterm2
+cask karabiner-elements
+cask notion
 cask pomello
-cask quicklook-json
+cask qlmarkdown
+cask quicklook-csv
+cask react-native-debugger
 cask runjs
 cask sketchpacks
-cask visual-studio-code
-cask zeplin
+cask station
+cask typora
+cask webstorm
 
 tap knqyf263/pet
 brew pet
@@ -97,20 +109,25 @@ tap sanemat/font
 brew ricty --with-powerline
 
 # Other Cask applications
-cask alfred
-cask bartender
-cask dash
-cask dropbox
-cask google-japanese-ime
-cask gyazo
-cask iterm2
-cask karabiner-elements
+cask BetterZip
+cask android-studio
+cask charles
+cask docker
+cask google-chrome
+cask graphiql
+cask insomnia
+cask james
+cask mapture
 cask pennywise
+cask qlcolorcode
 cask qlstephen
+cask quicklook-json
 cask rightfont
 cask sketch
-cask station
-cask webstorm
+cask stack
+cask steam
+cask visual-studio-code
+cask zeplin
 
 # App Store applications
 appstore 824171161 Affinity Designer (1.7.1)
