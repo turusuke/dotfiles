@@ -46,7 +46,6 @@ brew mpfr
 brew ncurses
 brew nkf
 brew oniguruma
-brew openssl
 brew openssl@1.1
 brew pango
 brew pcre
@@ -68,7 +67,6 @@ brew translate-shell
 brew trash
 brew tree
 brew unrar
-brew usbmuxd
 brew vim
 brew watchman
 brew xz
@@ -84,7 +82,8 @@ cask alfred
 cask bartender
 cask dash
 cask dropbox
-cask google-japanese-ime
+cask google-chrome
+cask graphiql
 cask gyazo
 cask iterm2
 cask karabiner-elements
@@ -108,13 +107,18 @@ brew brew-file
 tap sanemat/font
 brew ricty --with-powerline
 
+# Other Homebrew packages
+brew openssl
+brew usbmuxd
+
 # Other Cask applications
 cask BetterZip
 cask android-studio
 cask charles
 cask docker
-cask google-chrome
-cask graphiql
+cask gas-mask
+cask google-japanese-ime
+cask graphql-playground
 cask insomnia
 cask james
 cask mapture

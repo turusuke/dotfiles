@@ -6,6 +6,7 @@ set multiple-cursors " vim-multiple-cursors と同等の機能を実現する
 set hlsearch
 set incsearch
 set ignorecase
+set commentary
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC> 
 
