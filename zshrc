@@ -5,6 +5,14 @@ eval "$(anyenv init -)"
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+########################################
+
+# 少し凝った zshrc
+# License : MIT
+# http://mollifier.mit-license.org/
+
+# 上記の一部設定をカスマイズして使っています
+
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -40,6 +48,8 @@ setopt extended_glob
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
+
+########################################
 
 # alias
 alias -g C='| pbcopy'  # C で標準出力をクリップボードにコピーする
