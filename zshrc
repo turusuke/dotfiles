@@ -54,14 +54,15 @@ bindkey '^R' history-incremental-pattern-search-backward
 # alias
 alias -g C='| pbcopy'  # C で標準出力をクリップボードにコピーする
 alias -g X='| xargs'
+alias k='kill -9'
 alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias ideavim='vim ~/.ideavimrc'
 alias brewfile='vim ~/.config/brewfile/Brewfile'
 alias tigrc='vim ~/.tigrc'
 alias -s {html,pug,nunjax,css,scss,js,ts,tsc}='code'
-alias s='source ~/.zshrc'
-alias tmuxconf='vim ~/tmux.conf' 
+alias sz='source ~/.zshrc'
+alias tmuxconf='vim ~/tmux.conf'
 alias gq='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
@@ -157,7 +158,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ローカルの zshrc を読み込む
-if [[ -s "~/.zshrc-local" ]]; then
+if [[ -f ~/.zshrc-local ]]; then
   echo 'Loaded .zshrc-local'
-  source "~/.zshrc-local"
+  source ~/.zshrc-local
 fi

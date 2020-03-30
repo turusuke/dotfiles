@@ -36,8 +36,8 @@ endif
 " =============================================================
 " Global Configuration
 " =============================================================
-set helplang=ja,en 
-colorscheme gruvbox
+set helplang=ja,en
+" colorscheme gruvbox
 
 set autoindent
 set expandtab
@@ -49,12 +49,17 @@ set encoding=utf-8
 set fileencoding=utf-8
 set backspace=indent,eol,start
 
+" カーソルの形状を変化させる
+" https://qiita.com/Linda_pp/items/9e0c94eb82b18071db34
+if has('vim_starting')
+  " 挿入モード時に非点滅の縦棒タイプのカーソル
+  let &t_SI .= "\e[6 q"
+  " ノーマルモード時に非点滅のブロックタイプのカーソル
+  let &t_EI .= "\e[2 q"
+  " 置換モード時に非点滅の下線タイプのカーソル
+  let &t_SR .= "\e[4 q"
+endif
 
-" iTerm で insert mode 時にカーソルの形状を変化させる
-" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " 外部で変更のあったファイルを自動的に読み込む
 if has("autocmd")
   augroup vimrc-checktime
@@ -81,7 +86,7 @@ endfunction
 " Editor control
 " =============================================================
 inoremap <silent> ;; <ESC> ";;でノーマルモード
-nnoremap <silent><C-e> :NERDTreeToggle<CR> " ファイルツリーを Ctrl + e で出せるようにする 
+nnoremap <silent><C-e> :NERDTreeToggle<CR> " ファイルツリーを Ctrl + e で出せるようにする
 nnoremap Y 0y$ " 先頭から行末までコピー
 
 " =============================================================
@@ -110,12 +115,12 @@ map <Space>d <Plug>(textmanip-duplicate-down)
 nmap <Space>d <Plug>(textmanip-duplicate-down)
 xmap <Space>D <Plug>(textmanip-duplicate-up)
 nnoremap <Space>D <Plug>(textmanip-duplicate-up)
- 
+
 xmap <S-j> <Plug>(textmanip-move-down)
 xmap <S-k> <Plug>(textmanip-move-up)
 xmap <S-h> <Plug>(textmanip-move-left)
 xmap <S-l> <Plug>(textmanip-move-right)
- 
+
 " toggle insert/replace with <F10>
 map <F10> <Plug>(textmanip-toggle-mode)
 xmap <F10> <Plug>(textmanip-toggle-mode)
