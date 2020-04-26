@@ -4,6 +4,7 @@ fi
 eval "$(anyenv init -)"
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 ########################################
 
@@ -51,6 +52,9 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
 
+# cd を入力しなくても移動できるようにする
+setopt auto_cd
+
 # alias
 alias -g C='| pbcopy'  # C で標準出力をクリップボードにコピーする
 alias -g X='| xargs'
@@ -75,6 +79,7 @@ branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 
 alias fco='git checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
 alias ls='ls -G'
+alias la='ls -a'
 alias mkdir='mkdir -p'
 
 # tree alias
@@ -137,6 +142,15 @@ function cgbr() {
   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
+# https://ysano2005.hatenadiary.org/entry/20060507/1146984859
+function copy-prev-cmd-to-clipboard () {
+  ZHIST='.zsh_history'
+  cat ~/$ZHIST | tail -n 1 | perl -e '$h = <STDIN>; $h =~ m/;(.+)/; print $1;' | pbcopy
+}
+zle -N copy-prev-cmd-to-clipboard
+
+# ^KはCtrl + v + kで入力する
+bindkey '^K' copy-prev-cmd-to-clipboard
 
 # pet で直前のコマンドをスニペットに登録する
 function prev() {
@@ -151,9 +165,8 @@ function pet-select() {
   zle redisplay
 }
 zle -N pet-select
+stty -ixon
 bindkey '^,' pet-select
-
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -162,3 +175,6 @@ if [[ -f ~/.zshrc-local ]]; then
   echo 'Loaded .zshrc-local'
   source ~/.zshrc-local
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
