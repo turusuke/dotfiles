@@ -81,16 +81,6 @@ repo = 'tpope/vim-fugitive'
 repo  = 'Shougo/vimproc.vim'
 build = 'make'
 
-# yank を履歴管理できるようにしたもの
-# Ctr-p で前、Crt-n で次の履歴へ変更できる
-# :Unite yankround で一覧表示からリストで選択するように
-[[plugins]]
-repo  = 'leafcage/yankround.vim'
-
-# 直近の yank 
-# [[plugins]]
-# repo  = 'kana/vim-operator-replace'
-
 # + で選択範囲広げる _ で選択範囲縮める
 [[plugins]]
 repo  = 'terryma/vim-expand-region'

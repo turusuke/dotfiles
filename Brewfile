@@ -23,6 +23,7 @@ brew 'git'
 brew 'git-recent'
 brew 'glib'
 brew 'gmp'
+brew 'go'
 brew 'graphite2'
 brew 'harfbuzz'
 brew 'hub'
@@ -116,6 +117,9 @@ brew 'powerlevel10k'
 
 tap 'sanemat/font'
 brew 'ricty', args: ['{args:', 'with-powerline}']
+
+tap 'skanehira/docui'
+brew 'docui'
 
 # Other Homebrew packages
 brew 'openssl'

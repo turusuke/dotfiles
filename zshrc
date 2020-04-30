@@ -102,6 +102,10 @@ bindkey "^b" history-beginning-search-forward-end
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
+# docui
+export LC_CTYPE=en_US.UTF-8
+export TERM=xterm-256color
+
 # mkdirとcdを同時実行
 function mkcd() {
   if [[ -d $1 ]]; then
