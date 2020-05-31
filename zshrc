@@ -69,18 +69,42 @@ alias sz='source ~/.zshrc'
 alias tmuxconf='vim ~/tmux.conf'
 alias gq='cd $(ghq root)/$(ghq list | fzf)'
 alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
-
-# git
-alias g=git
-alias deco='g log --graph --oneline --decorate=full'
-## https://qiita.com/yaotti/items/0af5d50f4f52d22a46fe
-local git==git
-branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
-
-alias fco='git checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
 alias ls='ls -G'
 alias la='ls -a'
 alias mkdir='mkdir -p'
+
+# alias git
+alias g=git
+alias gc='g commit'
+alias ga='g add'
+alias gA='g add -A'
+alias gch='g checkout'
+alias gs='g status'
+alias gd='g diff'
+alias gdh='gd HEAD'
+alias gdc='gd --cached'
+alias gce='g commit --allow-empty'
+alias gca='g commit -a'
+alias gl='g log'
+alias gso='g show'
+alias deco='g log --graph --oneline --decorate=full'
+alias fco='g checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
+alias go='g switch --orphan'
+alias gr='git restore'
+alias grso='g restore --sorce' # 特定ファイルを特定コミットの状態にする
+alias grst='g restore --staged' # ステージングにあるファイルを実ファイルへの変更はそのままで復旧する
+alias grw='g restore --workspace' # ワークツリー上のファイルを復旧する
+
+# npm install
+alias ni='npm install --no-save'
+alias nig='npm intall --g'
+alias nui='npm uninstall --save'
+alias nud='npm uninstall --save-dev'
+alias nau='npm audit'
+
+## https://qiita.com/yaotti/items/0af5d50f4f52d22a46fe
+local git==git
+branchname=`${git} symbolic-ref --short HEAD 2> /dev/null`
 
 # tree alias
 alias tree="tree -I node_modules"
@@ -105,6 +129,10 @@ alias zmv='noglob zmv -W'
 # docui
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
+
+# fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 
 # mkdirとcdを同時実行
 function mkcd() {
@@ -146,14 +174,13 @@ function cgbr() {
   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
-# https://ysano2005.hatenadiary.org/entry/20060507/1146984859
+
 function copy-prev-cmd-to-clipboard () {
-  ZHIST='.zsh_history'
-  cat ~/$ZHIST | tail -n 1 | perl -e '$h = <STDIN>; $h =~ m/;(.+)/; print $1;' | pbcopy
+  fc -lrn | head -n 1 | pbcopy
 }
 zle -N copy-prev-cmd-to-clipboard
 
-# ^KはCtrl + v + kで入力する
+# 直前のコマンドをコピーする
 bindkey '^K' copy-prev-cmd-to-clipboard
 
 # pet で直前のコマンドをスニペットに登録する
@@ -182,3 +209,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias npm=prioritize-yarn
+

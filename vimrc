@@ -117,7 +117,7 @@ xmap <F10> <Plug>(textmanip-toggle-mode)
 " operator-replace
 " ===============================
 " 直近のyank と差し替える ex.riw
-map <Space>r <Plug>(operator-replace)
+" map <Space>r <Plug>(operator-replace)
 
 " expand_region_expand v 連打で選択範囲を広げられるようにする
 " ===============================
