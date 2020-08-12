@@ -64,6 +64,7 @@ alias vimrc='vim ~/.vimrc'
 alias ideavim='vim ~/.ideavimrc'
 alias brewfile='vim ~/.config/brewfile/Brewfile'
 alias tigrc='vim ~/.tigrc'
+alias dein='vim ~/dotfiles/dein_plugins'
 alias -s {html,pug,nunjax,css,scss,js,ts,tsc}='code'
 alias sz='source ~/.zshrc'
 alias tmuxconf='vim ~/tmux.conf'
@@ -176,6 +177,7 @@ function cgbr() {
 }
 
 function copy-prev-cmd-to-clipboard () {
+  echo 'copied prev command'
   fc -lrn | head -n 1 | pbcopy
 }
 zle -N copy-prev-cmd-to-clipboard
@@ -210,5 +212,5 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias npm=prioritize-yarn
+# alias npm=prioritize-yarn
 

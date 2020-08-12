@@ -74,6 +74,7 @@ nnoremap ]g :<C-u>action JumpToNextChange<CR>
 nnoremap [e :<C-u>action GotoPreviousError<CR>
 nnoremap ]e :<C-u>action GotoNextError<CR>
 
+" ブックマークの前/次へジャンプ
 nnoremap [b :action GotoPreviousBookmark<CR>
 nnoremap ]b :action GotoNextBookmark<CR>
 

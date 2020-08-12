@@ -37,7 +37,6 @@ endif
 " Global Configuration
 " =============================================================
 set helplang=ja,en
-" colorscheme gruvbox
 
 set autoindent
 set expandtab
@@ -48,6 +47,7 @@ set number
 set encoding=utf-8
 set fileencoding=utf-8
 set backspace=indent,eol,start
+set wildmenu
 
 " カーソルの形状を変化させる
 " https://qiita.com/Linda_pp/items/9e0c94eb82b18071db34
@@ -93,37 +93,6 @@ nnoremap Y 0y$ " 先頭から行末までコピー
 " Clipboard
 " =============================================================
 set clipboard=unnamed,unnamedplus " クリップボードと yank を同期させる
-
-" =============================================================
-" Plugin Settings
-" =============================================================
-
-" textmanip
-" ===============================
-map <Space>d <Plug>(textmanip-duplicate-down)
-nmap <Space>d <Plug>(textmanip-duplicate-down)
-xmap <Space>D <Plug>(textmanip-duplicate-up)
-nnoremap <Space>D <Plug>(textmanip-duplicate-up)
-
-xmap <S-j> <Plug>(textmanip-move-down)
-xmap <S-k> <Plug>(textmanip-move-up)
-xmap <S-h> <Plug>(textmanip-move-left)
-xmap <S-l> <Plug>(textmanip-move-right)
-
-" toggle insert/replace with <F10>
-map <F10> <Plug>(textmanip-toggle-mode)
-xmap <F10> <Plug>(textmanip-toggle-mode)
-
-" operator-replace
-" ===============================
-" 直近のyank と差し替える ex.riw
-" map <Space>r <Plug>(operator-replace)
-
-" expand_region_expand v 連打で選択範囲を広げられるようにする
-" ===============================
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
 " statusline
 " ===============================
 set laststatus=2
@@ -137,7 +106,7 @@ let g:bookmark_auto_close = 1 " マーク一覧からマークを選択した後
 let g:flow#autoclose = 1 " エラーを表示するquickfixのウィンドウをエラーがなくなり次第閉じる
 
 " emmet
-let g:user_emmet_leader_key='<space>'
+" let g:user_emmet_leader_key='<space>'
 
 function! ReadJSFile() abort
   let s:currentPos = col('.')

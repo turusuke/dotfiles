@@ -32,10 +32,6 @@ repo = 'osyo-manga/vim-precious'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 
-# 最近使ったファイルを表示する
-#[[plugins]]
-#repo = 'Shougo/neomru.vim'
-
 # ツリー型のファイル表示
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -108,11 +104,11 @@ repo = 'leafgarland/typescript-vim'
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
-merged = 0
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
+merged = 0
 
 [[plugins]]
 repo = 'SirVer/ultisnips'
@@ -125,3 +121,16 @@ repo = 'Quramy/tsuquyomi'
 depends = ['Shugo/vimproc']
   [autoload]
   filetypes = ['typescript']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = '''
+cd app & yarn install
+'''
+
+[[plugins]]
+repo = 'skanehira/docker.vim'
+
+[[plugins]]
+repo = 'psf/black'
