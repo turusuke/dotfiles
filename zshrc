@@ -16,6 +16,8 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # 環境変数
 export LANG=ja_JP.UTF-8
+export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
 # ヒストリの設定
 HISTFILE=~/.zsh_history
@@ -64,15 +66,17 @@ alias vimrc='vim ~/.vimrc'
 alias ideavim='vim ~/.ideavimrc'
 alias brewfile='vim ~/.config/brewfile/Brewfile'
 alias tigrc='vim ~/.tigrc'
+alias dotfiles='cd ~/dotfiles'
 alias dein='vim ~/dotfiles/dein_plugins'
 alias -s {html,pug,nunjax,css,scss,js,ts,tsc}='code'
 alias sz='source ~/.zshrc'
 alias tmuxconf='vim ~/tmux.conf'
-alias gq='cd $(ghq root)/$(ghq list | fzf)'
-alias gh='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
+alias gq='cd $(ghq root)/$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")'
+alias hb='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 alias ls='ls -G'
 alias la='ls -a'
 alias mkdir='mkdir -p'
+# alias npm=prioritize-yarn
 
 # alias git
 alias g=git
@@ -82,23 +86,27 @@ alias gA='g add -A'
 alias gch='g checkout'
 alias gs='g status'
 alias gd='g diff'
-alias gdh='gd HEAD'
-alias gdc='gd --cached'
+alias gdh='g diff HEAD'
+alias gdc='g diff --cached'
 alias gce='g commit --allow-empty'
 alias gca='g commit -a'
 alias gl='g log'
 alias gso='g show'
 alias deco='g log --graph --oneline --decorate=full'
 alias fco='g checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
-alias go='g switch --orphan'
+alias gio='g switch --orphan'
 alias gr='git restore'
 alias grso='g restore --sorce' # 特定ファイルを特定コミットの状態にする
 alias grst='g restore --staged' # ステージングにあるファイルを実ファイルへの変更はそのままで復旧する
 alias grw='g restore --workspace' # ワークツリー上のファイルを復旧する
+alias bri='brew install'
 
 # npm install
-alias ni='npm install --no-save'
-alias nig='npm intall --g'
+alias ni='npm init'
+alias nis='npm install --save'
+alias nid='npm install --save-dev'
+alias nin='npm install --no-save'
+alias nig='npm intall -g'
 alias nui='npm uninstall --save'
 alias nud='npm uninstall --save-dev'
 alias nau='npm audit'
@@ -134,6 +142,8 @@ export TERM=xterm-256color
 # fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
+# nnn
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 
 # mkdirとcdを同時実行
 function mkcd() {
@@ -177,7 +187,6 @@ function cgbr() {
 }
 
 function copy-prev-cmd-to-clipboard () {
-  echo 'copied prev command'
   fc -lrn | head -n 1 | pbcopy
 }
 zle -N copy-prev-cmd-to-clipboard
@@ -211,6 +220,4 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# alias npm=prioritize-yarn
 

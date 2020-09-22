@@ -60,6 +60,27 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
+let g:user_emmet_settings = {
+\  'variables' : {
+\    'lang' : "ja"
+\  },
+\  'html' : {
+\    'indentation' : '  ',
+\    'snippets' : {
+\      'html:5': "<!DOCTYPE html>\n"
+\        ."<html lang=\"${lang}\">\n"
+\        ."<head>\n"
+\        ."\t<meta charset=\"${charset}\">\n"
+\        ."\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n"
+\        ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+\        ."\t<title></title>\n"
+\        ."</head>\n"
+\        ."<body>\n\t${child}|\n</body>\n"
+\        ."</html>",
+\    }
+\  }
+\}
+
 " 外部で変更のあったファイルを自動的に読み込む
 if has("autocmd")
   augroup vimrc-checktime

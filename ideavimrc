@@ -7,6 +7,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set commentary
+set highlightedyank
+set exchange
+
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC> 
 
