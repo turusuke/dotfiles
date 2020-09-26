@@ -167,7 +167,6 @@ brew 'usbmuxd'
 cask 'BetterZip'
 
 # App Store applications
-mas 'Affinity', id: id:
 mas 'Bear', id: 1091189122
 mas 'GarageBand', id: 682658836
 mas 'GitStars', id: 1112091009
@@ -181,6 +180,5 @@ mas 'Pages', id: 409201541
 mas 'Pixave', id: 924891282
 mas 'Pixelmator', id: 407963104
 mas 'Sip', id: 507257563
-mas 'Translate', id: id:
 mas 'Tweetbot', id: 1384080005
 mas 'Unclutter', id: 577085396

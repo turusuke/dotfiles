@@ -18,6 +18,7 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 export LANG=ja_JP.UTF-8
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 
 # ヒストリの設定
 HISTFILE=~/.zsh_history
