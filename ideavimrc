@@ -93,6 +93,7 @@ nnoremap <Space>z :<C-u>action QuickJavaDoc<CR>
 " Git
 nnoremap <Space>v :<C-u>action Vcs.ShowHistoryForBlock<CR>
 nnoremap <Space>B :<C-u>action Git.Branches<CR>
+nnoremap <Space>g :<C-u>action Git.ContextMenu<CR>
 
 " insert mode
 " ===============================
