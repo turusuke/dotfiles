@@ -132,8 +132,8 @@ cd app & yarn install
 [[plugins]]
 repo = 'skanehira/docker.vim'
 
-[[plugins]]
-repo = 'psf/black'
+#[[plugins]]
+#repo = 'psf/black'
 
 [[plugins]]
 repo = 'wsdjeg/vim-todo'

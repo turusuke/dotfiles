@@ -19,6 +19,7 @@ export LANG=ja_JP.UTF-8
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
+export DOCKER_CONTENT_TRUST=1
 
 # ヒストリの設定
 HISTFILE=~/.zsh_history
