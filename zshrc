@@ -126,6 +126,9 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
 # コマンドを途中まで入力後、historyから絞り込み
 # 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+bで逆順
 autoload -Uz history-search-end
