@@ -102,6 +102,8 @@ alias gr='git restore'
 alias grso='g restore --sorce' # 特定ファイルを特定コミットの状態にする
 alias grst='g restore --staged' # ステージングにあるファイルを実ファイルへの変更はそのままで復旧する
 alias grw='g restore --workspace' # ワークツリー上のファイルを復旧する
+alias gp='git pull'
+
 alias bri='brew install'
 
 # npm install
