@@ -106,7 +106,7 @@ alias gp='git pull'
 
 alias bri='brew install'
 
-# npm install
+# alias npm
 alias ni='npm init'
 alias nis='npm install --save'
 alias nid='npm install --save-dev'
@@ -115,6 +115,9 @@ alias nig='npm install -g'
 alias nui='npm uninstall --save'
 alias nud='npm uninstall --save-dev'
 alias nau='npm audit'
+
+# alias docker
+alias dc='docker container ls -a --format "{{.Names}}" | fzf'
 
 ## https://qiita.com/yaotti/items/0af5d50f4f52d22a46fe
 local git==git
