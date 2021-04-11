@@ -48,6 +48,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set backspace=indent,eol,start
 set wildmenu
+set shell=zsh\ -i
 
 " カーソルの形状を変化させる
 " https://qiita.com/Linda_pp/items/9e0c94eb82b18071db34

@@ -1,17 +1,22 @@
 " =============================================================
 " Global Configuration
 " =============================================================
+let mapleader=","
+
 set surround
 set multiple-cursors " vim-multiple-cursors と同等の機能を実現する
 set hlsearch
 set incsearch
 set ignorecase
 set commentary
+set ideajoin
 set highlightedyank
+set NERDTree
 set exchange
+set easymotion
 
 " Escの2回押しでハイライト消去
-nnoremap <Esc><Esc> :nohlsearch<CR><ESC> 
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 
 " =============================================================
 " Clipboard
@@ -24,6 +29,7 @@ set clipboard=unnamed,unnamedplus
 " =============================================================
 nnoremap mm :action ToggleBookmark<CR>
 nnoremap ma :action ShowBookmarks<CR>
+
 " =============================================================
 " Window
 " =============================================================
@@ -33,6 +39,13 @@ nnoremap <C-W>j :action VimWindowDown<CR>
 nnoremap <C-W>h :action VimWindowLeft<CR>
 nnoremap <C-W>l :action VimWindowRight<CR>
 nnoremap <C-W>k :action VimWindowUp<CR>
+
+" =============================================================
+" NERDTree
+" =============================================================
+nnoremap nt :NERDTree<CR>
+nnoremap ng :NERDTreeToggle<CR>
+nnoremap nc :NERDTreeClose<CR>
 
 " =============================================================
 " Editor control
@@ -103,7 +116,7 @@ inoremap <C-e> <C-o>$<Right>
 inoremap <C-u> <C-o>d^
 inoremap <C-w> <C-o>db
 
-nnoremap ;; <Esc>
+inoremap ;; <Esc>
 
 " Visual mode
 " ===============================

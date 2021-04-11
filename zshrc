@@ -223,6 +223,17 @@ bindkey '^,' pet-select
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# scrapbox
+function scb() {
+  if [[ $1 == '--create' || $1 == '-c' ]]; then
+    open "https://scrapbox.io/$2/$3"
+  else
+    articles=$(curl -s "https://scrapbox.io/api/pages/$1" -b "connect.sid=$SCRAPBOX_SID")
+  title=$(echo $articles | tr -d '[:cntrl:]' | jq -r '.pages[].title' | fzf)
+  echo "https://scrapbox.io/$1/$(echo $articles | tr -d '[:cntrl:]' | jq -r --arg title $title '.pages[] | select(.title == $title) | .title' | sed -e 's/  */_/g')" | xargs open
+  fi
+}
+
 # ローカルの zshrc を読み込む
 if [[ -f ~/.zshrc-local ]]; then
   echo 'Loaded .zshrc-local'
@@ -231,4 +242,20 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('~/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "~/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "~/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="~/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
