@@ -3,22 +3,41 @@
 " =============================================================
 let mapleader=","
 
-set surround
-"vim-multiple-cursors と同等の機能を実現する
+" vim-multiple-cursors と同等の機能を実現する
 set multiple-cursors
-set hlsearch "検索対象をハイライト
-set incsearch "インクリメンタル検索
-set ignorecase " / で検索時に大文字小文字を区別しない
-set smartcase " / で検索時に大文字を含んでいたら区別する
-set commentary " Commands: gcc, gc + motion, v_gc
-set ideajoin
-set highlightedyank
-set NERDTree
-" Commands: cx, cxx, X, cxc
 
+" 検索対象をハイライト
+set hlsearch
+
+" インクリメンタル検索
+set incsearch
+
+" / で検索時に大文字小文字を区別しない
+set ignorecase
+
+" / で検索時に大文字を含んでいたら区別する
+set smartcase
+
+" Emulates vim-surround
+" Commands: ys, cs, ds, S
+set surround
+
+" Emulates commentary.vim
+" Commands: gcc, gc + motion, v_gc
+set commentary
+
+" Commands: cx, cxx, X, cxc
 " https://github.com/tommcdo/vim-exchange
 set exchange
+
+" Emulates vim-easymotion
 set easymotion
+set ideajoin
+set highlightedyank
+
+" Emulates NERDTree
+set NERDTree
+
 " 行末のスペースを可視化
 set listchars=tab:^\ ,trail:~
 
@@ -129,4 +148,5 @@ inoremap ;; <Esc>
 " ===============================
 " vnoremap v ^$h " vv で行末まで選択
 " vnoremap v :action EditorUpWithSelection<CR>
+
 
