@@ -4,16 +4,23 @@
 let mapleader=","
 
 set surround
-set multiple-cursors " vim-multiple-cursors と同等の機能を実現する
-set hlsearch
-set incsearch
-set ignorecase
-set commentary
+"vim-multiple-cursors と同等の機能を実現する
+set multiple-cursors
+set hlsearch "検索対象をハイライト
+set incsearch "インクリメンタル検索
+set ignorecase " / で検索時に大文字小文字を区別しない
+set smartcase " / で検索時に大文字を含んでいたら区別する
+set commentary " Commands: gcc, gc + motion, v_gc
 set ideajoin
 set highlightedyank
 set NERDTree
+" Commands: cx, cxx, X, cxc
+
+" https://github.com/tommcdo/vim-exchange
 set exchange
 set easymotion
+" 行末のスペースを可視化
+set listchars=tab:^\ ,trail:~
 
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>

@@ -17,7 +17,7 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 # 環境変数
 export LANG=ja_JP.UTF-8
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=header,grid --line-range :100 {}"'
 export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
 export DOCKER_CONTENT_TRUST=1
 
@@ -98,11 +98,11 @@ alias gso='g show'
 alias deco='g log --graph --oneline --decorate=full'
 alias fco='g checkout `git branch --all | grep -v HEAD | fzf`' # fzf でブランチを検索、checkout
 alias gio='g switch --orphan'
-alias gr='git restore'
-alias grso='g restore --sorce' # 特定ファイルを特定コミットの状態にする
+alias gr='g restore'
+alias grso='g restore --source' # 特定ファイルを特定コミットの状態にする
 alias grst='g restore --staged' # ステージングにあるファイルを実ファイルへの変更はそのままで復旧する
 alias grw='g restore --workspace' # ワークツリー上のファイルを復旧する
-alias gp='git pull'
+alias gp='g pull'
 
 alias bri='brew install'
 
