@@ -36,6 +36,7 @@ endif
 " =============================================================
 " Global Configuration
 " =============================================================
+let mapleader=","
 set helplang=ja,en
 
 set autoindent
@@ -125,39 +126,37 @@ let g:lightline = {
 " indentGuide
 let g:indent_guides_enable_on_vim_startup = 1 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:bookmark_auto_close = 1 " マーク一覧からマークを選択した後に自動的にウィンドウを閉じる
-let g:flow#autoclose = 1 " エラーを表示するquickfixのウィンドウをエラーがなくなり次第閉じる
 
-" emmet
-" let g:user_emmet_leader_key='<space>'
+" incserarch-easymotion
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
 
-function! ReadJSFile() abort
-  let s:currentPos = col('.')
-  let s:colNum = s:currentPos - 1
-  let s:lastPos = len(getline('.'))
-  let s:fileName = ''
+" easy-motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+map <Leader> <Plug>(easymotion-prefix)
 
-  while s:colNum > -1
-    if getline('.')[s:colNum] =~ "\['\"\]"
-      break
-    end
-    let s:fileName =  getline('.')[s:colNum] . s:fileName
-    let s:colNum = s:colNum - 1
-  endwhile
-  while s:currentPos < s:lastPos
-    if getline('.')[s:currentPos] =~ "\['\"\]"
-      break
-    end
-    let s:fileName =  s:fileName . getline('.')[s:currentPos]
-    let s:currentPos = s:currentPos + 1
-  endwhile
-  let s:fullName = simplify(expand("%:h") . '/' . s:fileName)
-  if !filereadable(s:fullName)
-    if isdirectory(s:fullName)
-      let s:fullName = s:fullName . '/index.js'
-    else
-      let s:fullName = s:fullName . '.js'
-    endif
-  endif
-  execute ':sp ' . s:fullName
-endfunction
-autocmd FileType javascript nmap <C-g>  :call ReadJSFile()<CR>
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)" =======================================
+
+" General Configuration
+" =======================================
+let g:EasyMotion_keys = 'QWERASDFZXCV'
+" Show target key with upper case to improve readability
+let g:EasyMotion_use_upper = 1
+" Jump to first match with enter & space
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+
