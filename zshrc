@@ -103,6 +103,7 @@ alias grso='g restore --source' # 特定ファイルを特定コミットの状�
 alias grst='g restore --staged' # ステージングにあるファイルを実ファイルへの変更はそのままで復旧する
 alias grw='g restore --workspace' # ワークツリー上のファイルを復旧する
 alias gp='g pull'
+alias gzz='g fuzzy'
 
 alias bri='brew install'
 
@@ -259,3 +260,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="/Users/turusuke/dotfiles/git-fuzzy/bin:$PATH"
