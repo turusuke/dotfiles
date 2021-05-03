@@ -228,10 +228,13 @@ bindkey '^,' pet-select
 function scb() {
   if [[ $1 == '--create' || $1 == '-c' ]]; then
     open "https://scrapbox.io/$2/$3"
+  elif [[ $1 == '--open' || $1 == '-o' ]]; then
+    articles=$(curl -s "https://scrapbox.io/api/pages/$2" -b "connect.sid=$SCRAPBOX_SID")
+    title=$(echo $articles | tr -d '[:cntrl:]' | jq -r '.pages[].title' | fzf)
+    echo "https://scrapbox.io/$2/$(echo $articles | tr -d '[:cntrl:]' | jq -r --arg title $title '.pages[] | select(.title == $title) | .title' | sed -e 's/  */_/g')" | xargs open
   else
-    articles=$(curl -s "https://scrapbox.io/api/pages/$1" -b "connect.sid=$SCRAPBOX_SID")
-  title=$(echo $articles | tr -d '[:cntrl:]' | jq -r '.pages[].title' | fzf)
-  echo "https://scrapbox.io/$1/$(echo $articles | tr -d '[:cntrl:]' | jq -r --arg title $title '.pages[] | select(.title == $title) | .title' | sed -e 's/  */_/g')" | xargs open
+    title=$(curl -s "https://scrapbox.io/api/pages/$1" -b "connect.sid=$SCRAPBOX_SID" | jq -r '.pages[].title' | fzf | sed -e 's/ /_/g' | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n')
+    curl -s "https://scrapbox.io/api/pages/$1/$title/text" -b "connect.sid=$SCRAPBOX_SID" | bat -l md
   fi
 }
 
