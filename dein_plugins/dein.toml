@@ -32,10 +32,6 @@ repo = 'osyo-manga/vim-precious'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 
-# ツリー型のファイル表示
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-
 [[plugins]]
 repo = 'Shougo/vimshell'
 
@@ -48,8 +44,8 @@ repo = 'terryma/vim-multiple-cursors'
 repo = 'editorconfig/editorconfig-vim'
 
 # vim から git のコマンドを実行できるようにするやつ
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
 
 # vim 下部のステータスラインを装飾するプラグイン
 [[plugins]]
@@ -146,3 +142,6 @@ repo = 'easymotion/vim-easymotion'
 
 [[plugins]]
 repo = 'haya14busa/incsearch-easymotion.vim'
+
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'

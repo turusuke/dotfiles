@@ -149,8 +149,9 @@ let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)" =======================================
+map <Leader>k <Plug>(easymotion-k)
 
+" =======================================
 " General Configuration
 " =======================================
 let g:EasyMotion_keys = 'QWERASDFZXCV'
@@ -160,3 +161,10 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 
+" =======================================
+" Preview Markdown
+" =======================================
+" let g:preview_markdown_parser='glow'
+nnoremap <Leader>md :PreviewMarkdown<CR>
+
+" call map(dein#check_clean(), "delete(v:val, 'rf')
