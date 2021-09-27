@@ -131,6 +131,9 @@ nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
 nnoremap <Space>e :<C-u>action Javascript.Linters.EsLint.Fix<CR>
 nnoremap <Space>z :<C-u>action QuickJavaDoc<CR>
 
+" Search
+nnoremap <Space>u :<C-u>action ShowUsages<CR>
+
 " Git
 nnoremap <Space>v :<C-u>action Vcs.ShowHistoryForBlock<CR>
 nnoremap <Space>B :<C-u>action Git.Branches<CR>

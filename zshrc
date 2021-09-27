@@ -264,3 +264,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/Users/turusuke/dotfiles/git-fuzzy/bin:$PATH"
+
+# bear autocomplete setup
+BEAR_AC_ZSH_SETUP_PATH=/Users/turusuke/Library/Caches/@sloansparger/bear/autocomplete/zsh_setup && test -f $BEAR_AC_ZSH_SETUP_PATH && source $BEAR_AC_ZSH_SETUP_PATH;
