@@ -3,8 +3,6 @@
 " =============================================================
 let mapleader=","
 
-set ttimeoutlen=10
-
 " vim-multiple-cursors と同等の機能を実現する
 set multiple-cursors
 
