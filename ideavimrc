@@ -147,6 +147,9 @@ inoremap <C-w> <C-o>db
 
 inoremap ;; <Esc>
 
+nnoremap <Space>r :<C-u>action RunAnything<CR>
+
+
 " Visual mode
 " ===============================
 " vnoremap v ^$h " vv で行末まで選択
