@@ -1,4 +1,0 @@
-[[plugins]]
-repo = 'flowtype/vim-flow'
-filetypes = 'javascript'
-
